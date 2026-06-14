@@ -2,6 +2,8 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.util.ElapsedTime;
+
 
 @TeleOp(name = "Panda Encoder Test", group = "test")
 public class PandaEncoderTest extends LinearOpMode {
@@ -18,11 +20,15 @@ public class PandaEncoderTest extends LinearOpMode {
         telemetry.addLine();
         telemetry.addLine("Press START, then turn the shaft by hand.");
         telemetry.update();
+        ElapsedTime timer = new ElapsedTime();
 
         waitForStart();
 
         while (opModeIsActive()) {
+            timer.reset();
             encoder.update(); // keeps the multi-turn total current
+            double msPerRead = timer.milliseconds();
+            telemetry.addData("avg read (ms)", "%.3f", msPerRead);
 
             telemetry.addData("Magnet OK", encoder.magnetOk());
             telemetry.addData("Raw (0-4095)", encoder.readRawAngle());
