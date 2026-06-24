@@ -38,7 +38,7 @@ public class SlugMultiplexerTest extends LinearOpMode {
 
             for (int i = 0; i < enc.length; i++) {
                 mux.selectChannel(channel[i]);      // 1) select, then
-                double heading = enc[i].getHeadingDegrees(); // 2) read — only ch[i] answers
+                double heading = enc[i].getAbsoluteDegrees(); // 2) read — only ch[i] answers
                 telemetry.addData("enc " + i + " (deg)", "%.1f", heading);
             }
 

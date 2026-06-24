@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 public class PandaEncoderAbsolute extends LinearOpMode {
 
     // Paste the value from "Find Base Offset" for THIS encoder:
-    static final int BASE_TICK_OFFSET = 1850;   // <-- replace per encoder
+    static final int BASE_TICK_OFFSET = 2535;   // <-- replace per encoder
 
     @Override
     public void runOpMode() {
